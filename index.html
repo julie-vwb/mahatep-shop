@@ -9,7 +9,7 @@
   :root {
     --orange-main: #FF9800; /* ส้มหลัก */
     --green-main: #2E7D32;  /* เขียวเข้มดุดัน */
-    --black-bg: #000000;    /* ดำสนิท */
+    --black-bg: #000000;    /* พื้นหลังดำสนิท */
     --card-bg: #1A1A1B;     /* เทาเข้มมากสำหรับตัดขอบการ์ด */
     --white-text: #FFFFFF;  /* ฟอนต์สีขาว */
     --muted-text: #B0B0B0;
@@ -56,7 +56,9 @@ pointer-events:none; z-index:0;
 .logo-img {
   width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
   border: 4px solid #111; outline: 2px solid var(--orange-main);
-  box-shadow: 0 0 30px rgba(255,152,0,0.2); position: relative; z-index: 2;
+  /* เพิ่มแสงฟุ้งรอบโลโก้ */
+  box-shadow: 0 0 20px 5px rgba(255, 152, 0, 0.6), 0 0 40px 10px rgba(255, 152, 0, 0.4); 
+  position: relative; z-index: 2;
 }
 .logo-emoji {
   position: absolute; font-size: 1.8rem; z-index: 1; animation: floatEmoji 3s ease-in-out infinite;
@@ -141,7 +143,6 @@ font-size:1.1rem; font-weight:700; padding:18px 20px;
 border-radius:15px; text-decoration:none;
 border-bottom: 4px solid var(--hot);
 box-shadow: 0 8px 25px rgba(255,152,0,0.2);
-transition: all 0.2s;
 }
 .cta-btn:hover { transform: translateY(2px); border-bottom-width: 2px; filter: brightness(1.1); }
 
