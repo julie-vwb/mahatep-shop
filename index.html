@@ -7,13 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --orange-main: #FF9800; /* ส้มหลัก */
-    --green-main: #2E7D32;  /* เขียวเข้มดุดัน */
-    --black-bg: #000000;    /* พื้นหลังดำสนิท */
-    --card-bg: #1A1A1B;     /* เทาเข้มมากสำหรับตัดขอบการ์ด */
-    --white-text: #FFFFFF;  /* ฟอนต์สีขาว */
+    --orange-main: #FF9800;
+    --green-main: #2E7D32; 
+    --black-bg: #000000;
+    --card-bg: #121212;
+    --white-text: #FFFFFF;
     --muted-text: #B0B0B0;
-    --hot: #E65100;         /* ส้มเข้มจัด */
   }
   * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -25,17 +24,16 @@ color: var(--white-text);
 overflow-x: hidden;
 }
 
-/* Background Effect - ปรับให้มืดลงอีก */
 body::before {
 content: '';
 position:fixed; inset:0;
 background: 
-    radial-gradient(circle at 10% 10%, rgba(255,152,0,0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, rgba(46,125,50,0.05) 0%, transparent 40%);
+    radial-gradient(circle at 15% 15%, rgba(255,152,0,0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(46,125,50,0.05) 0%, transparent 40%);
 pointer-events:none; z-index:0;
 }
 
-/* อิโมจิพื้นหลังลอยๆ */
+/* อิโมจิลอยพื้นหลัง */
 .sp { position:fixed; pointer-events:none; z-index:0; animation:fl 5s ease-in-out infinite; opacity:0.4; }
 .sp:nth-child(1){top:4%;left:5%;font-size:22px;}
 .sp:nth-child(2){top:12%;right:8%;font-size:14px;animation-delay:1s;}
@@ -48,7 +46,7 @@ pointer-events:none; z-index:0;
 
 .header { text-align:center; padding:35px 0 20px; animation:fadeUp .7s ease both; }
 
-/* โลโก้และอิโมจิลอยรอบๆ */
+/* โลโก้และอิโมจิลอยรอบๆ พร้อมแสงฟุ้ง */
 .logo-wrapper {
   margin-bottom: 25px;
   display: flex; justify-content: center; position: relative; width: fit-content; margin-left: auto; margin-right: auto;
@@ -56,8 +54,7 @@ pointer-events:none; z-index:0;
 .logo-img {
   width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
   border: 4px solid #111; outline: 2px solid var(--orange-main);
-  /* เพิ่มแสงฟุ้งรอบโลโก้ */
-  box-shadow: 0 0 20px 5px rgba(255, 152, 0, 0.6), 0 0 40px 10px rgba(255, 152, 0, 0.4); 
+  box-shadow: 0 0 25px 5px rgba(255, 152, 0, 0.5), 0 0 50px 10px rgba(255, 152, 0, 0.3);
   position: relative; z-index: 2;
 }
 .logo-emoji {
@@ -70,7 +67,7 @@ pointer-events:none; z-index:0;
 
 @keyframes floatEmoji {
   0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-  50% { transform: translateY(-12px) scale(1.2) rotate(10deg); }
+  50% { transform: translateY(-12px) scale(1.1) rotate(10deg); }
 }
 
 .shop-name {
@@ -87,7 +84,6 @@ border-radius:20px; padding:6px 15px;
 font-size:.75rem; color: var(--white-text); font-weight:600;
 }
 
-/* ส่วนกรอบสถานะ - ตามแบบรูปภาพแต่ใช้โทนเข้ม */
 .status-container {
   background: var(--card-bg);
   border-radius: 20px; padding: 15px; margin-bottom: 20px;
@@ -112,7 +108,6 @@ animation:fadeUp .6s ease both;
 
 .ct { font-size:1.1rem; font-weight:700; color: var(--orange-main); margin-bottom:18px; display:flex; align-items:center; gap:8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
 
-/* ขั้นตอนการสั่งแบบ Step - ตัวเลขส้ม พื้นหลังขาว */
 .step-item { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; }
 .step-num {
   width: 32px; height: 32px; background: var(--orange-main); color: var(--black-bg);
@@ -123,15 +118,28 @@ animation:fadeUp .6s ease both;
 
 .lnk {
 display:flex; align-items:center; gap:10px;
-background: rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:12px;
+background: rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:12px;
 padding:12px 14px; text-decoration:none; color: var(--white-text);
 font-size:.84rem; transition:all .2s; margin-bottom:9px;
 }
-.lnk:hover { border-color: var(--orange-main); background: rgba(255,152,0,0.1); transform: translateX(5px); }
+.lnk:hover { border-color: var(--orange-main); background: rgba(255,152,0,0.05); transform: translateX(5px); }
 .lnk-name { font-weight:600; font-size:.88rem; color: var(--orange-main); }
 
 .list-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
 .list-tag { background: var(--black-bg); color: var(--white-text); padding: 5px 10px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; text-align: center; border: 1px solid var(--green-main); }
+
+/* โครงสร้างระยะเวลาการทำงานแบบ 3 ช่อง */
+.time-container { margin-top: 20px; }
+.time-title { font-size: 0.9rem; font-weight: 700; color: var(--white-text); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.time-box {
+  padding: 12px 5px; border-radius: 12px; text-align: center; font-size: 0.7rem; font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.time-box.green { background: #E8F5E9; color: #2E7D32; border-color: #A5D6A7; }
+.time-box.orange { background: #FFF3E0; color: #E65100; border-color: #FFCC80; }
+.time-box.yellow { background: #FFFDE7; color: #F57F17; border-color: #FFF59D; }
+.time-label { display: block; font-size: 1.1rem; font-weight: 800; margin-bottom: 2px; }
 
 .price-tag { background: var(--orange-main); color: var(--black-bg); padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; }
 
@@ -141,10 +149,9 @@ display:inline-block; width:100%; max-width:320px;
 background: var(--orange-main); color: var(--black-bg); 
 font-size:1.1rem; font-weight:700; padding:18px 20px;
 border-radius:15px; text-decoration:none;
-border-bottom: 4px solid var(--hot);
+border-bottom: 4px solid #E65100;
 box-shadow: 0 8px 25px rgba(255,152,0,0.2);
 }
-.cta-btn:hover { transform: translateY(2px); border-bottom-width: 2px; filter: brightness(1.1); }
 
 .footer { text-align:center; padding:16px 0 8px; font-size:.73rem; color:var(--muted-text); }
 
@@ -229,11 +236,25 @@ box-shadow: 0 8px 25px rgba(255,152,0,0.2);
       <div class="step-text">ส่งเมลรอรับงานนะคะ 💌</div>
     </div>
 
-    <hr style="margin: 15px 0; border: 0; border-top: 1px dashed rgba(255,255,255,0.1);">
-    <div style="font-size:0.85rem; line-height:1.7;">
-      <p style="font-weight:bold; color:var(--orange-main); margin-bottom:8px;">⏱️ ระยะเวลาทำงาน (สั่งเยอะอาจรอนานนิดนึงค่ะ):</p>
-      <p>• ปกติ 2 วัน / ช่วงเรียน 5-7 วัน</p>
-      <p>• งานเร่ง <span class="price-tag">+20.-</span> (12-25 ชั่วโมง)</p>
+    <div class="time-container">
+      <div class="time-title">⏱️ ระยะเวลาทำงาน</div>
+      <div class="time-grid">
+        <div class="time-box green">
+          <span class="time-label">1</span>
+          วัน (เร็วสุด)
+        </div>
+        <div class="time-box orange">
+          <span class="time-label">3-5</span>
+          วัน (ปกติ)
+        </div>
+        <div class="time-box yellow">
+          <span class="time-label">7</span>
+          วัน (สูงสุด)
+        </div>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--orange-main); font-weight: bold; margin-top: 15px; text-align: center;">
+          🔥 งานเร่ง <span class="price-tag">+20.-</span> ต่องาน (12-25 ชม.)
+      </p>
     </div>
   </div>
 
