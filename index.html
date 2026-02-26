@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahatep 🎮</title>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange1: #FFF3E0;
+    --orange2: #FFCC80;
+    --orange3: #FF9800;
+    --green1: #E8F5E9;
+    --green2: #A5D6A7;
+    --green3: #4CAF50;
+    --green4: #2E7D32;
+    --hot: #E64A19;
+    --bg-grad: linear-gradient(160deg, #FFF8E1 0%, #F1F8E9 50%, #ffffff 100%);
+    --text: #4E342E;
+    --textl: #795548;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+font-family: 'Mitr', sans-serif;
+background: var(--bg-grad);
+min-height: 100vh;
+color: var(--text);
+overflow-x: hidden;
+}
+
+body::before {
+content: '';
+position:fixed; inset:0;
+background:
+radial-gradient(circle at 15% 15%, rgba(255,183,77,0.2) 0%, transparent 45%),
+radial-gradient(circle at 85% 85%, rgba(76,175,80,0.1) 0%, transparent 45%);
+pointer-events:none; z-index:0;
+}
+
+.sp { position:fixed; pointer-events:none; z-index:0; animation:fl 5s ease-in-out infinite; opacity:0.6; }
+.sp:nth-child(1){top:4%;left:5%;font-size:22px;}
+.sp:nth-child(2){top:12%;right:8%;font-size:14px;animation-delay:1s;}
+.sp:nth-child(3){top:38%;left:2%;font-size:12px;animation-delay:2s;}
+.sp:nth-child(4){top:55%;right:4%;font-size:20px;animation-delay:.5s;}
+.sp:nth-child(5){bottom:22%;left:7%;font-size:16px;animation-delay:1.5s;}
+@keyframes fl {0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-14px) rotate(8deg);}}
+
+.wrap { max-width:480px; margin:0 auto; padding:16px 14px 60px; position:relative; z-index:1; }
+
+.header { text-align:center; padding:35px 0 20px; animation:fadeUp .7s ease both; }
+
+/* โลโก้จากรูปภาพที่ลูกค้าเลือก */
+.logo-wrapper {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo-img {
+  width: 180px; 
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  outline: 2px solid var(--orange2);
+  box-shadow: 0 8px 25px rgba(255,152,0,0.25);
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+.logo-emoji {
+  position: absolute;
+  font-size: 1.8rem;
+  z-index: 1;
+  animation: floatEmoji 3s ease-in-out infinite;
+}
+/* ปรับอิโมจิให้เข้ากับรูปโปรไฟล์ */
+.e1 { top: -15px; left: -15px; animation-delay: 0s; }
+.e2 { top: -15px; right: -15px; animation-delay: 0.5s; }
+.e3 { bottom: 5px; left: -25px; animation-delay: 1s; }
+.e4 { bottom: 5px; right: -25px; animation-delay: 1.5s; }
+
+@keyframes floatEmoji {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(-12px) scale(1.2) rotate(10deg); }
+}
+
+.shop-name {
+font-size:2.4rem; font-weight:700;
+color: var(--orange3);
+letter-spacing:1px;
+text-shadow: 2px 2px 4px rgba(255,152,0,0.15);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+}
+.shop-sub { font-size:.85rem; color:var(--textl); margin-top:12px; line-height:1.6; padding: 0 10px; }
+
+.badges { display:flex; justify-content:center; gap:7px; flex-wrap:wrap; margin-top:15px; }
+.badge {
+background:#fff; border:1.5px solid var(--orange2);
+border-radius:20px; padding:4px 13px;
+font-size:.72rem; color:var(--orange3); font-weight:500;
+}
+
+.card {
+background:rgba(255,255,255,.85); backdrop-filter:blur(12px);
+border:1.5px solid rgba(255,204,128,.4);
+border-radius:22px; padding:20px 18px; margin-bottom:14px;
+box-shadow:0 4px 18px rgba(255,152,0,.08), inset 0 1px 0 rgba(255,255,255,.8);
+position:relative; overflow:hidden;
+animation:fadeUp .6s ease both;
+}
+
+.ct { font-size:.98rem; font-weight:600; color:var(--green4); margin-bottom:13px; display:flex; align-items:center; gap:8px; border-bottom: 1px solid var(--green1); padding-bottom: 8px; }
+.ct .ic { font-size:1.15rem; }
+
+.status-box {
+background:linear-gradient(135deg,#FFF3E0,#E8F5E9);
+border:1.5px dashed var(--orange3); border-radius:16px;
+padding:15px; text-align:center; margin-bottom:14px;
+}
+.s-open { font-size:1.1rem; font-weight:600; color: var(--text); }
+.s-dot { display:inline-block; width:10px;height:10px; background:var(--green3); border-radius:50%; margin-right:8px; box-shadow:0 0 0 4px rgba(76,175,80,.2); animation:blink 2s ease-in-out infinite; }
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+.lnk {
+display:flex; align-items:center; gap:10px;
+background:linear-gradient(135deg,#ffffff,#FFF3E0);
+border:1.5px solid rgba(255,183,77,0.2); border-radius:14px;
+padding:12px 14px; text-decoration:none; color:var(--text);
+font-size:.84rem; transition:all .2s; margin-bottom:9px;
+}
+.lnk:hover { transform:translateX(4px); border-color: var(--orange3); background: #fff; }
+.lnk-ic { font-size:1.3rem; flex-shrink:0; }
+.lnk-name { font-weight:600; font-size:.88rem; color:var(--orange3); margin-bottom:2px; }
+.lnk-desc { font-size:.75rem; color:var(--textl); }
+
+.list-item { font-size: 0.85rem; line-height: 1.8; margin-bottom: 5px; display: flex; align-items: flex-start; gap: 8px; }
+.list-item::before { content: '🥧'; font-size: 0.7rem; margin-top: 2px; }
+
+.price-tag { background: var(--orange1); color: var(--hot); padding: 2px 8px; border-radius: 6px; font-weight: 600; font-size: 0.8rem; }
+
+.footer { text-align:center; padding:16px 0 8px; font-size:.73rem; color:var(--textl); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
+</style>
+
+</head>
+<body>
+<div class="sp">🧀</div>
+<div class="sp">🥧</div>
+<div class="sp">🧃</div>
+<div class="sp">💥</div>
+<div class="sp">🔥</div>
+
+<div class="wrap">
+  <div class="header">
+    <div class="logo-wrapper">
+      <span class="logo-emoji e1">💥</span>
+      <span class="logo-emoji e2">🔥</span>
+      <span class="logo-emoji e3">⚡</span>
+      <span class="logo-emoji e4">🎯</span>
+      <img src="Logo.jpeg" alt="Mahatep Logo" class="logo-img">
+    </div>
+    
+    <div class="shop-name">˗ˏˋ Mahatep ´ˎ˗</div>
+    <div class="shop-sub">
+      รับตัดป้ายไอดีเกม บล็อก ทำป้ายงานกราฟฟิค<br>
+      ซื้อ - ขาย และปล่อยเช่าไอดีเกม<br>
+      <small style="color:var(--hot); font-weight:bold;">( แอดก่อนทักเท่านั้นนะคะ )</small>
+    </div>
+    <div class="badges">
+      <span class="badge">🎮 งานเกม/Ads</span>
+      <span class="badge">🎨 งานกราฟฟิค</span>
+      <span class="badge">🗝️ เช่าไอดีเกม</span>
+    </div>
+  </div>
+
+  <div class="status-box">
+    <div class="s-open"><span class="s-dot"></span>พร้อมรับออเดอร์ ทักสอบถามได้ค่ะ 🥧</div>
+  </div>
+
+  <div class="card">
+    <div class="ct"><span class="ic">🎨</span> งานที่รับทำ & ผลงาน</div>
+    <a href="https://linkbio.co/7110411pPuYG6" class="lnk" target="_blank">
+      <span class="lnk-ic">💰</span>
+      <div><div class="lnk-name">ประเภทงาน + ราคา</div><div class="lnk-desc">เช็คเรทราคางานแต่ละแบบได้ที่นี่</div></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1sgKBsvVn6PhI0OWAFXWJnxS0zz2_FWhX" class="lnk" target="_blank">
+      <span class="lnk-ic">🖼️</span>
+      <div><div class="lnk-name">Portfolio</div><div class="lnk-desc">ดูตัวอย่างผลงานที่เคยทำมา</div></div>
+    </a>
+    
+    <div style="margin-top:15px; background: #fdfdfd; padding: 12px; border-radius: 12px; border: 1px dashed var(--green2);">
+      <p style="font-size:0.85rem; font-weight:bold; margin-bottom:8px; color:var(--green4);">รายการที่รับทำ:</p>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+        <div class="list-item">แนว Ads/เกม</div>
+        <div class="list-item">แนวน่ารัก</div>
+        <div class="list-item">ป้ายไอดีเกม</div>
+        <div class="list-item">แนวผีเสื้อ</div>
+        <div class="list-item">คอสกาลเวลา</div>
+        <div class="list-item">แนวมืด</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct"><span class="ic">📋</span> ขั้นตอน & เงื่อนไข</div>
+    <div style="font-size:0.85rem; line-height:1.7;">
+      <p style="font-weight:bold; color:var(--hot); margin-bottom:8px;">⏱️ ระยะเวลาทำงาน:</p>
+      <div class="list-item">ปกติ 2 วัน</div>
+      <div class="list-item">5-7 วัน (สำหรับช่วงเรียน)</div>
+      <div class="list-item">งานเร่ง <span class="price-tag">+20.-</span> (12~25 ชม.)</div>
+      
+      <p style="font-weight:bold; color:var(--green4); margin-top:12px; margin-bottom:8px;">📝 ขั้นตอนการสั่ง:</p>
+      <div style="counter-reset: step; padding-left: 5px;">
+        <div class="list-item">แนบตัวอย่างของทางร้าน</div>
+        <div class="list-item">บรีฟงานตามที่ร้านวงแจ้ง/ตามฟอร์ม</div>
+        <div class="list-item">ชำระเงิน <small>(วอเลท/ธนาคาร)</small></div>
+        <div class="list-item">กรณีงานบล็อก ร้านจะส่งร่างให้ตรวจสอบ</div>
+        <div class="list-item">ส่งเมลรอรับงาน</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct"><span class="ic">📱</span> ช่องทางติดต่อ</div>
+    <a href="#" class="lnk" style="border-color: var(--green3);">
+      <span class="lnk-ic">💬</span>
+      <div><div class="lnk-name">สั่งงานผ่าน LINE / Social</div><div class="lnk-desc">ทักสอบถามได้ (แอดก่อนทักเท่านั้น)</div></div>
+    </a>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="#" class="cta-btn" style="background: linear-gradient(135deg, var(--orange3), var(--hot));">
+      🥧 ติดต่อสั่งงาน / สอบถาม
+    </a>
+  </div>
+
+  <div class="footer">
+    <div>made with 🧃 · Mahatep · Graphic & Game Service</div>
+  </div>
+</div>
+</body>
+</html>
