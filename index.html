@@ -7,45 +7,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --orange1: #FFF3E0;
-    --orange2: #FFCC80;
-    --orange3: #FF9800;
-    --green1: #E8F5E9;
-    --green2: #A5D6A7;
-    --green3: #4CAF50;
-    --green4: #2E7D32;
-    --hot: #E64A19;
-    --black: #1A1A1B; /* ดำสนิทขึ้น */
-    --bg-grad: linear-gradient(160deg, #FFF8E1 0%, #F1F8E9 50%, #ffffff 100%);
-    --text: #333333;
-    --textl: #555555;
+    --orange-main: #FF9800;
+    --orange-soft: #FFCC80;
+    --green-main: #4CAF50;
+    --green-soft: #A5D6A7;
+    --dark-bg: #1A1A1B;    /* เทาเข้ม */
+    --card-bg: #2D2D2E;    /* เทา Card */
+    --black-pure: #000000;
+    --white-text: #E0E0E0;
+    --muted-text: #B0B0B0;
+    --hot: #FF5722;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
 font-family: 'Mitr', sans-serif;
-background: var(--bg-grad);
+background: var(--dark-bg);
 min-height: 100vh;
-color: var(--text);
+color: var(--white-text);
 overflow-x: hidden;
 }
 
 body::before {
 content: '';
 position:fixed; inset:0;
-background:
-radial-gradient(circle at 15% 15%, rgba(255,152,0,0.15) 0%, transparent 45%),
-radial-gradient(circle at 85% 85%, rgba(76,175,80,0.1) 0%, transparent 45%);
+background: 
+    radial-gradient(circle at 10% 10%, rgba(255,152,0,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(76,175,80,0.08) 0%, transparent 40%);
 pointer-events:none; z-index:0;
 }
 
-/* อิโมจิลอยตัว ปรับสัดส่วนสีใหม่ */
-.sp { position:fixed; pointer-events:none; z-index:0; animation:fl 5s ease-in-out infinite; opacity:0.6; }
-.sp:nth-child(1){top:4%;left:5%;font-size:22px;} /* 💣 */
-.sp:nth-child(2){top:12%;right:8%;font-size:14px;animation-delay:1s;} /* 💚 */
-.sp:nth-child(3){top:38%;left:2%;font-size:12px;animation-delay:2s;} /* ⚡ */
-.sp:nth-child(4){top:55%;right:4%;font-size:20px;animation-delay:.5s;} /* 💥 */
-.sp:nth-child(5){bottom:22%;left:7%;font-size:16px;animation-delay:1.5s;} /* 🔋 */
+.sp { position:fixed; pointer-events:none; z-index:0; animation:fl 5s ease-in-out infinite; opacity:0.4; }
+.sp:nth-child(1){top:4%;left:5%;font-size:22px;}
+.sp:nth-child(2){top:12%;right:8%;font-size:14px;animation-delay:1s;}
+.sp:nth-child(3){top:38%;left:2%;font-size:12px;animation-delay:2s;}
+.sp:nth-child(4){top:55%;right:4%;font-size:20px;animation-delay:.5s;}
+.sp:nth-child(5){bottom:22%;left:7%;font-size:16px;animation-delay:1.5s;}
 @keyframes fl {0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-14px) rotate(8deg);}}
 
 .wrap { max-width:480px; margin:0 auto; padding:16px 14px 60px; position:relative; z-index:1; }
@@ -66,9 +63,9 @@ pointer-events:none; z-index:0;
   height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid var(--black);
-  outline: 3px solid var(--green2); /* เพิ่มสีเขียวที่ขอบโลโก้ */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  border: 4px solid var(--black-pure);
+  outline: 2px solid var(--orange-main);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   position: relative;
   z-index: 2;
 }
@@ -78,10 +75,10 @@ pointer-events:none; z-index:0;
   z-index: 1;
   animation: floatEmoji 3s ease-in-out infinite;
 }
-.e1 { top: -15px; left: -15px; animation-delay: 0s; } /* 💥 */
-.e2 { top: -15px; right: -15px; animation-delay: 0.5s; } /* 🔋 */
-.e3 { bottom: 5px; left: -25px; animation-delay: 1s; } /* 💣 */
-.e4 { bottom: 5px; right: -25px; animation-delay: 1.5s; } /* 💚 */
+.e1 { top: -15px; left: -15px; animation-delay: 0s; } 
+.e2 { top: -15px; right: -15px; animation-delay: 0.5s; } 
+.e3 { bottom: 5px; left: -25px; animation-delay: 1s; } 
+.e4 { bottom: 5px; right: -25px; animation-delay: 1.5s; }
 
 @keyframes floatEmoji {
   0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
@@ -90,108 +87,93 @@ pointer-events:none; z-index:0;
 
 .shop-name {
 font-size:2.4rem; font-weight:700;
-color: var(--black);
+color: var(--orange-main);
 letter-spacing:1px;
-text-shadow: 2px 2px 0px var(--green2); /* ใช้เงาสีเขียวตัดกับชื่อสีดำ */
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 12px;
+text-shadow: 2px 2px 0px var(--black-pure);
+display: flex; align-items: center; justify-content: center; gap: 12px;
 }
-.shop-sub { font-size:.85rem; color:var(--textl); margin-top:12px; line-height:1.6; }
+.shop-sub { font-size:.85rem; color:var(--muted-text); margin-top:12px; line-height:1.6; padding: 0 10px; }
 
 .badges { display:flex; justify-content:center; gap:7px; flex-wrap:wrap; margin-top:15px; }
 .badge {
-background:var(--black); border:1.5px solid var(--green3);
+background:var(--black-pure); border:1px solid var(--green-main);
 border-radius:20px; padding:4px 13px;
-font-size:.72rem; color:var(--green2); font-weight:500;
+font-size:.72rem; color:var(--green-soft); font-weight:500;
 }
 
 .card {
-background:rgba(255,255,255,.92); backdrop-filter:blur(12px);
-border: 1px solid rgba(0,0,0,.08);
-border-left: 5px solid var(--black); /* เพิ่มดีไซน์แถบสีดำด้านซ้าย */
+background: var(--card-bg);
+border: 1px solid rgba(255,255,255,0.05);
+border-left: 5px solid var(--orange-main);
 border-radius:18px; padding:20px 18px; margin-bottom:14px;
-box-shadow: 0 4px 15px rgba(0,0,0,.05);
+box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 animation:fadeUp .6s ease both;
 }
 
-.ct { font-size:.98rem; font-weight:600; color:var(--black); margin-bottom:13px; display:flex; align-items:center; gap:8px; border-bottom: 2px solid var(--green1); padding-bottom: 8px; }
+.ct { font-size:.98rem; font-weight:600; color:var(--orange-soft); margin-bottom:13px; display:flex; align-items:center; gap:8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
 
 .status-box {
-background: var(--black);
-border-radius:16px;
-padding:15px; text-align:center; margin-bottom:14px;
-border: 1px solid var(--orange3);
+background: var(--black-pure);
+border-radius:16px; padding:15px; text-align:center; margin-bottom:14px;
+border: 1px solid var(--green-main);
 }
-.s-open { font-size:1.1rem; font-weight:600; color: var(--green2); }
-.s-dot { display:inline-block; width:10px;height:10px; background:var(--green3); border-radius:50%; margin-right:8px; box-shadow:0 0 0 4px rgba(76,175,80,.2); animation:blink 2s ease-in-out infinite; }
+.s-open { font-size:1.1rem; font-weight:600; color: var(--green-soft); }
+.s-dot { display:inline-block; width:10px;height:10px; background:var(--green-main); border-radius:50%; margin-right:8px; box-shadow:0 0 10px var(--green-main); animation:blink 2s ease-in-out infinite; }
 
 .lnk {
 display:flex; align-items:center; gap:10px;
-background:#fff;
-border:1.5px solid #eee; border-radius:12px;
-padding:12px 14px; text-decoration:none; color:var(--text);
+background: rgba(0,0,0,0.2);
+border:1px solid rgba(255,255,255,0.1); border-radius:12px;
+padding:12px 14px; text-decoration:none; color:var(--white-text);
 font-size:.84rem; transition:all .2s; margin-bottom:9px;
 }
-.lnk:hover { border-color: var(--green3); transform: translateX(5px); background: var(--green1); }
-.lnk-name { font-weight:600; font-size:.88rem; color:var(--black); }
+.lnk:hover { border-color: var(--orange-main); transform: translateX(5px); background: rgba(255,152,0,0.05); }
+.lnk-name { font-weight:600; font-size:.88rem; color:var(--orange-main); }
 
-/* ปรับเปลี่ยนจุดหน้ารายการเป็นเขียว/ดำสลับกัน */
-.list-item { font-size: 0.85rem; line-height: 1.8; margin-bottom: 5px; display: flex; align-items: flex-start; gap: 8px; }
-.list-item::before { content: '🟢'; font-size: 0.6rem; margin-top: 4px; }
-.list-item.dark::before { content: '⚫'; }
+.list-item { font-size: 0.85rem; line-height: 1.8; margin-bottom: 5px; display: flex; align-items: flex-start; gap: 8px; color: var(--white-text); }
+.list-item::before { content: '🟠'; font-size: 0.6rem; margin-top: 4px; }
+.list-item.dark::before { content: '🟢'; }
 
-.price-tag { background: var(--black); color: var(--orange2); padding: 2px 8px; border-radius: 6px; font-weight: 600; font-size: 0.8rem; }
+.price-tag { background: var(--orange-main); color: var(--black-pure); padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; }
 
-/* ปุ่ม CTA ที่เสถียรและเน้นโทนดำ-เขียว-ส้ม */
 .cta-wrap { text-align:center; padding:10px 0; }
 .cta-btn {
 display:inline-block; width:100%; max-width:320px;
-background: var(--black);
-color: #fff; font-family: 'Mitr', sans-serif;
-font-size:1.1rem; font-weight:600; padding:16px 20px;
+background: var(--orange-main);
+color: var(--black-pure); font-family: 'Mitr', sans-serif;
+font-size:1.1rem; font-weight:700; padding:16px 20px;
 border-radius:12px; text-decoration:none;
-border-bottom: 4px solid var(--green4);
-box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+border-bottom: 4px solid var(--hot);
+box-shadow: 0 8px 25px rgba(255,152,0,0.3);
 transition: all 0.2s;
 }
-.cta-btn:hover { transform: translateY(2px); border-bottom-width: 2px; }
-.cta-btn span { color: var(--orange3); }
+.cta-btn:hover { transform: translateY(2px); border-bottom-width: 2px; filter: brightness(1.1); }
 
-.footer { text-align:center; padding:16px 0 8px; font-size:.73rem; color:var(--textl); }
+.footer { text-align:center; padding:16px 0 8px; font-size:.73rem; color:var(--muted-text); }
 
 @keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
 </style>
 
 </head>
 <body>
-<div class="sp">💣</div>
-<div class="sp">💚</div>
-<div class="sp">🔋</div>
-<div class="sp">💥</div>
-<div class="sp">⚫</div>
+<div class="sp">💣</div><div class="sp">💚</div><div class="sp">🔋</div><div class="sp">💥</div><div class="sp">⚫</div>
 
 <div class="wrap">
   <div class="header">
     <div class="logo-wrapper">
-      <span class="logo-emoji e1">💥</span>
-      <span class="logo-emoji e2">🔋</span>
-      <span class="logo-emoji e3">💣</span>
-      <span class="logo-emoji e4">💚</span>
+      <span class="logo-emoji e1">💥</span><span class="logo-emoji e2">🔋</span>
+      <span class="logo-emoji e3">💣</span><span class="logo-emoji e4">💚</span>
       <img src="Logo.jpeg" alt="Mahatep Logo" class="logo-img">
     </div>
     
     <div class="shop-name">˗ˏˋ Mahatep ´ˎ˗</div>
     <div class="shop-sub">
-      รับตัดป้ายไอดีเกม บล็อก ทำป้ายงานกราฟฟิค<br>
-      ซื้อ - ขาย และปล่อยเช่าไอดีเกม<br>
-      <small style="color:var(--hot); font-weight:bold;">( แอดก่อนทักเท่านั้นนะคะ )</small>
+      รับตัดป้ายไอดีเกม บล็อก ทำป้ายงานกราฟฟิค ซื้อ - ขาย และปล่อยเช่าไอดีเกมนะคะ สามารถทักสอบถามได้ค่ะ <br>
+      <small style="color:var(--orange-main); font-weight:bold;">( แอดก่อนทักเท่านั้นนะคะ )</small>
     </div>
     <div class="badges">
-      <span class="badge">🎮 งานเกม/Ads</span>
-      <span class="badge">🎨 Graphic</span>
-      <span class="badge">🗝️ Rent ID</span>
+      <span class="badge">🎨 Graphic Design</span>
+      <span class="badge">🎮 Game ID Service</span>
     </div>
   </div>
 
@@ -203,50 +185,53 @@ transition: all 0.2s;
     <div class="ct"><span class="ic">🎨</span> งานที่รับทำ & ผลงาน</div>
     <a href="https://linkbio.co/7110411pPuYG6" class="lnk" target="_blank">
       <span class="lnk-ic">💰</span>
-      <div><div class="lnk-name">ประเภทงาน + ราคา</div></div>
+      <div><div class="lnk-name">ประเภทงาน + ราคาแต่ละแบบ</div></div>
     </a>
     <a href="https://drive.google.com/drive/folders/1sgKBsvVn6PhI0OWAFXWJnxS0zz2_FWhX" class="lnk" target="_blank">
       <span class="lnk-ic">🖼️</span>
-      <div><div class="lnk-name">Portfolio</div></div>
+      <div><div class="lnk-name">รูปตัวอย่างผลงาน</div></div>
     </a>
     
-    <div style="margin-top:15px; background: #fafafa; padding: 12px; border-radius: 12px; border: 1px dashed var(--green3);">
-      <p style="font-size:0.85rem; font-weight:bold; margin-bottom:8px; color:var(--black);">รายการที่รับทำ:</p>
+    <div style="margin-top:15px; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 12px; border: 1px dashed var(--orange-main);">
+      <p style="font-size:0.85rem; font-weight:bold; margin-bottom:8px; color:var(--orange-main);">รายการที่รับทำ:</p>
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-        <div class="list-item">Ads/เกม</div>
-        <div class="list-item dark">แนวน่ารัก</div>
+        <div class="list-item">บล็อกแนว Ads</div>
+        <div class="list-item">บล็อกแนวเกม</div>
+        <div class="list-item">บล็อกแนวน่ารัก</div>
         <div class="list-item">ป้ายไอดีเกม</div>
-        <div class="list-item dark">แนวผีเสื้อ</div>
-        <div class="list-item">คอสกาลเวลา</div>
-        <div class="list-item dark">แนวมืด</div>
+        <div class="list-item">ป้ายแนวผีเสื้อ</div>
+        <div class="list-item">ป้ายคอสกาลเวลา</div>
+        <div class="list-item">ป้ายแนวเกม</div>
+        <div class="list-item">ป้ายแนวมืด</div>
       </div>
     </div>
   </div>
 
-  <div class="card">
-    <div class="ct"><span class="ic">📋</span> ขั้นตอน & เงื่อนไข</div>
+  <div class="card" style="border-left-color: var(--green-main);">
+    <div class="ct" style="color: var(--green-soft);"><span class="ic">📋</span> ขั้นตอน & เงื่อนไข</div>
     <div style="font-size:0.85rem; line-height:1.7;">
-      <p style="font-weight:bold; color:var(--hot); margin-bottom:8px;">⏱️ ระยะเวลาทำงาน:</p>
+      <p style="font-weight:bold; color:var(--orange-main); margin-bottom:8px;">⏱️ ระยะเวลาทำงาน (สั่งเยอะอาจรอนานหน่อยนะคะ):</p>
       <div class="list-item">ปกติ 2 วัน</div>
-      <div class="list-item">5-7 วัน (ช่วงเรียน)</div>
-      <div class="list-item">งานเร่ง <span class="price-tag">+20.-</span></div>
+      <div class="list-item">5-7 วัน (สำหรับช่วงเรียน)</div>
+      <div class="list-item">เร่งงาน <span class="price-tag">+20.-</span> (12-25 ชั่วโมง)</div>
       
-      <p style="font-weight:bold; color:var(--green4); margin-top:12px; margin-bottom:8px;">📝 ขั้นตอนการสั่ง:</p>
-      <div class="list-item dark">แนบตัวอย่างร้าน</div>
-      <div class="list-item dark">บรีฟงานตามแจ้ง</div>
-      <div class="list-item dark">ชำระเงิน (วอลเลท/ธนาคาร)</div>
-      <div class="list-item dark">รอรับร่าง/รับงาน</div>
+      <p style="font-weight:bold; color:var(--green-main); margin-top:12px; margin-bottom:8px;">📝 ขั้นตอนการสั่ง:</p>
+      <div class="list-item dark">1. แนบตัวอย่างของทางร้าน</div>
+      <div class="list-item dark">2. บรีฟงานตามที่ร้านวงแจ้ง (หรือตามฟอร์ม)</div>
+      <div class="list-item dark">3. ชำระเงิน (วอเลท/ธนาคาร)</div>
+      <div class="list-item dark">4. กรณีสั่งบล็อก จะส่งร่างให้ตรวจสอบก่อน</div>
+      <div class="list-item dark">5. ส่งเมลรอรับงานนะคะ</div>
     </div>
   </div>
 
   <div class="cta-wrap">
     <a href="#" class="cta-btn" target="_blank">
-      💣 ติดต่อสั่งงาน <span>/</span> สอบถาม
+      💣 ติดต่อสั่งงาน / สอบถาม
     </a>
   </div>
 
   <div class="footer">
-    <div>made with 🔋 · Mahatep · Graphic Service</div>
+    <div>made with 🔋 · Mahatep · Graphic & Game Service</div>
   </div>
 </div>
 </body>
