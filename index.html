@@ -46,7 +46,7 @@ pointer-events:none; z-index:0;
 
 .header { text-align:center; padding:35px 0 20px; animation:fadeUp .7s ease both; }
 
-/* โลโก้และอิโมจิลอยรอบๆ พร้อมแสงฟุ้ง */
+/* โลโก้และอิโมจิลอยรอบๆ พร้อมแสงฟุ้งสีส้ม */
 .logo-wrapper {
   margin-bottom: 25px;
   display: flex; justify-content: center; position: relative; width: fit-content; margin-left: auto; margin-right: auto;
@@ -128,16 +128,14 @@ font-size:.84rem; transition:all .2s; margin-bottom:9px;
 .list-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
 .list-tag { background: var(--black-bg); color: var(--white-text); padding: 5px 10px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; text-align: center; border: 1px solid var(--green-main); }
 
-/* ปรับสีระยะเวลาการทำงานให้เข้าธีม */
+/* ปรับสีระยะเวลาการทำงานคุมโทน ส้ม-เขียว-ดำ */
 .time-container { margin-top: 20px; }
 .time-title { font-size: 0.9rem; font-weight: 700; color: var(--white-text); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
 .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .time-box {
   padding: 12px 5px; border-radius: 12px; text-align: center; font-size: 0.7rem; font-weight: 600;
   border: 1px solid rgba(255,255,255,0.1);
-  transition: transform 0.2s;
 }
-/* ปรับโทนสีใหม่ ดำ-ส้ม-เขียว */
 .time-box.green { background: #1b2e1c; color: #4CAF50; border-color: var(--green-main); }
 .time-box.orange { background: #2e1e0a; color: #FF9800; border-color: var(--orange-main); }
 .time-box.yellow { background: #212105; color: #FFEB3B; border-color: #FBC02D; }
@@ -153,7 +151,9 @@ font-size:1.1rem; font-weight:700; padding:18px 20px;
 border-radius:15px; text-decoration:none;
 border-bottom: 4px solid #E65100;
 box-shadow: 0 8px 25px rgba(255,152,0,0.2);
+transition: all 0.2s;
 }
+.cta-btn:hover { transform: translateY(2px); border-bottom-width: 2px; }
 
 .footer { text-align:center; padding:16px 0 8px; font-size:.73rem; color:var(--muted-text); }
 
@@ -261,8 +261,8 @@ box-shadow: 0 8px 25px rgba(255,152,0,0.2);
   </div>
 
   <div class="cta-wrap">
-    <a href="#" class="cta-btn" target="_blank">
-      💣 ติดต่อสั่งงาน / สอบถาม
+    <a href="https://www.facebook.com/share/1E3PUNa5tN/" class="cta-btn" target="_blank">
+      💣 ติดต่อสั่งงาน / Facebook
     </a>
   </div>
 
