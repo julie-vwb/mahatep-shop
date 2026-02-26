@@ -7,33 +7,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --orange-main: #FF9800;
-    --orange-soft: #FFCC80;
-    --green-main: #4CAF50;
-    --green-soft: #A5D6A7;
-    --dark-bg: #1A1A1B;
-    --card-bg: #2D2D2E;
-    --black-pure: #000000;
-    --white-text: #E0E0E0;
+    --orange-main: #FF9800; /* ส้มหลัก */
+    --green-main: #2E7D32;  /* เขียวเข้มดุดัน */
+    --black-bg: #000000;    /* ดำสนิท */
+    --card-bg: #1A1A1B;     /* เทาเข้มมากสำหรับตัดขอบการ์ด */
+    --white-text: #FFFFFF;  /* ฟอนต์สีขาว */
     --muted-text: #B0B0B0;
-    --hot: #FF5722;
+    --hot: #E65100;         /* ส้มเข้มจัด */
   }
   * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
 font-family: 'Mitr', sans-serif;
-background: var(--dark-bg);
+background: var(--black-bg);
 min-height: 100vh;
 color: var(--white-text);
 overflow-x: hidden;
 }
 
+/* Background Effect - ปรับให้มืดลงอีก */
 body::before {
 content: '';
 position:fixed; inset:0;
 background: 
-    radial-gradient(circle at 10% 10%, rgba(255,152,0,0.08) 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, rgba(76,175,80,0.08) 0%, transparent 40%);
+    radial-gradient(circle at 10% 10%, rgba(255,152,0,0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(46,125,50,0.05) 0%, transparent 40%);
 pointer-events:none; z-index:0;
 }
 
@@ -57,8 +55,8 @@ pointer-events:none; z-index:0;
 }
 .logo-img {
   width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
-  border: 4px solid var(--black-pure); outline: 2px solid var(--orange-main);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; z-index: 2;
+  border: 4px solid #111; outline: 2px solid var(--orange-main);
+  box-shadow: 0 0 30px rgba(255,152,0,0.2); position: relative; z-index: 2;
 }
 .logo-emoji {
   position: absolute; font-size: 1.8rem; z-index: 1; animation: floatEmoji 3s ease-in-out infinite;
@@ -75,19 +73,19 @@ pointer-events:none; z-index:0;
 
 .shop-name {
 font-size:2.4rem; font-weight:700; color: var(--orange-main);
-letter-spacing:1px; text-shadow: 2px 2px 0px var(--black-pure);
+letter-spacing:1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 display: flex; align-items: center; justify-content: center; gap: 12px;
 }
-.shop-sub { font-size:.85rem; color:var(--muted-text); margin-top:12px; line-height:1.6; padding:0 10px; }
+.shop-sub { font-size:.85rem; color: var(--white-text); margin-top:12px; line-height:1.6; padding:0 10px; opacity: 0.9; }
 
 .badges { display:flex; justify-content:center; gap:7px; flex-wrap:wrap; margin-top:15px; }
 .badge {
-background:var(--black-pure); border:1.5px solid var(--green-main);
+background: var(--black-bg); border:1.5px solid var(--green-main);
 border-radius:20px; padding:6px 15px;
-font-size:.75rem; color:var(--green-soft); font-weight:600;
+font-size:.75rem; color: var(--white-text); font-weight:600;
 }
 
-/* ส่วนกรอบสถานะ */
+/* ส่วนกรอบสถานะ - ตามแบบรูปภาพแต่ใช้โทนเข้ม */
 .status-container {
   background: var(--card-bg);
   border-radius: 20px; padding: 15px; margin-bottom: 20px;
@@ -95,7 +93,7 @@ font-size:.75rem; color:var(--green-soft); font-weight:600;
   display: flex; justify-content: center; align-items: center;
 }
 .status-pill {
-  background: var(--black-pure); color: var(--green-soft);
+  background: var(--black-bg); color: var(--white-text);
   padding: 8px 25px; border-radius: 50px; font-weight: 600;
   display: flex; align-items: center; gap: 10px; border: 1px solid var(--green-main);
 }
@@ -106,16 +104,16 @@ background: var(--card-bg);
 border: 1px solid rgba(255,255,255,0.05);
 border-left: 5px solid var(--orange-main);
 border-radius:20px; padding:22px; margin-bottom:20px;
-box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 animation:fadeUp .6s ease both;
 }
 
-.ct { font-size:1.1rem; font-weight:700; color:var(--orange-soft); margin-bottom:18px; display:flex; align-items:center; gap:8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+.ct { font-size:1.1rem; font-weight:700; color: var(--orange-main); margin-bottom:18px; display:flex; align-items:center; gap:8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
 
-/* ขั้นตอนการสั่งแบบ Step */
+/* ขั้นตอนการสั่งแบบ Step - ตัวเลขส้ม พื้นหลังขาว */
 .step-item { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; }
 .step-num {
-  width: 32px; height: 32px; background: var(--orange-main); color: var(--black-pure);
+  width: 32px; height: 32px; background: var(--orange-main); color: var(--black-bg);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-weight: 800; flex-shrink: 0;
 }
@@ -123,26 +121,26 @@ animation:fadeUp .6s ease both;
 
 .lnk {
 display:flex; align-items:center; gap:10px;
-background: rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.1); border-radius:12px;
-padding:12px 14px; text-decoration:none; color:var(--white-text);
+background: rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:12px;
+padding:12px 14px; text-decoration:none; color: var(--white-text);
 font-size:.84rem; transition:all .2s; margin-bottom:9px;
 }
-.lnk:hover { border-color: var(--orange-main); transform: translateX(5px); }
-.lnk-name { font-weight:600; font-size:.88rem; color:var(--orange-main); }
+.lnk:hover { border-color: var(--orange-main); background: rgba(255,152,0,0.1); transform: translateX(5px); }
+.lnk-name { font-weight:600; font-size:.88rem; color: var(--orange-main); }
 
 .list-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
-.list-tag { background: var(--black-pure); color: var(--green-soft); padding: 5px 10px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; text-align: center; border: 1px solid rgba(76,175,80,0.3); }
+.list-tag { background: var(--black-bg); color: var(--white-text); padding: 5px 10px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; text-align: center; border: 1px solid var(--green-main); }
 
-.price-tag { background: var(--orange-main); color: var(--black-pure); padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; }
+.price-tag { background: var(--orange-main); color: var(--black-bg); padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; }
 
 .cta-wrap { text-align:center; padding:10px 0; }
 .cta-btn {
 display:inline-block; width:100%; max-width:320px;
-background: var(--orange-main); color: var(--black-pure); 
-font-size:1.1rem; font-weight:700; padding:16px 20px;
+background: var(--orange-main); color: var(--black-bg); 
+font-size:1.1rem; font-weight:700; padding:18px 20px;
 border-radius:15px; text-decoration:none;
 border-bottom: 4px solid var(--hot);
-box-shadow: 0 8px 25px rgba(255,152,0,0.3);
+box-shadow: 0 8px 25px rgba(255,152,0,0.2);
 transition: all 0.2s;
 }
 .cta-btn:hover { transform: translateY(2px); border-bottom-width: 2px; filter: brightness(1.1); }
@@ -208,7 +206,7 @@ transition: all 0.2s;
   </div>
 
   <div class="card" style="border-left-color: var(--green-main);">
-    <div class="ct" style="color: var(--green-soft);"><span class="ic">📋</span> ขั้นตอนการสั่งซื้อ</div>
+    <div class="ct" style="color: var(--orange-main); border-bottom-color: var(--green-main);"><span class="ic">📋</span> ขั้นตอนการสั่งซื้อ</div>
     <div class="step-item">
       <div class="step-num">1</div>
       <div class="step-text">แนบตัวอย่างของทางร้าน</div>
@@ -245,7 +243,7 @@ transition: all 0.2s;
   </div>
 
   <div class="footer">
-    <div>made with 🔋 · Mahatep · Graphic & Game Service</div>
+    <div>made with 🔋 · Mahatep · 2026</div>
   </div>
 </div>
 </body>
